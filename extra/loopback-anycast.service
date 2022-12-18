@@ -1,0 +1,12 @@
+[Unit]
+Description=Add loopback address for anycast VIP
+After=network.target
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/sbin/ip address add local 10.10.10.10/32 dev lo
+
+[Install]
+WantedBy=multi-user.target
+
